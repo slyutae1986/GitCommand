@@ -19,4 +19,6 @@ class uploadkey:
         login = serverConfig.get('gitlab_info','username')
         pwd = serverConfig.get('gitlab_info','password')
 
-    def
+    #封装gitlab get请求
+    def gitPost(self,host,params):
+        pass
