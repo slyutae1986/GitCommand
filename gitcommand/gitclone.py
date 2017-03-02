@@ -1,10 +1,19 @@
-import os
-import urllib
-import urllib2
-import cookielib
-import json
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os,sys,configparser
+reload(sys)
+
+"""
+目的是执行文件操作
+
+"""
+
 
 class gitclone:
 
     def  login(self,username,password):
-        pass
+        gitconfig = configparser.ConfigParser
+        gitconfig.read('config/server.ini')
+
+

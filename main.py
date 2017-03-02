@@ -13,8 +13,6 @@ if __name__ == '__main__':
 
     test = setupkey.sshkey()
     test.addkey()
-    test.getPublicString()
-    test.uploadkey()
 
 
 

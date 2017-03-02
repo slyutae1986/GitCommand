@@ -27,10 +27,8 @@ class sshkey():
         #执行cmd命令生成public_key和private_key
         def addkey(self):
             sys.setdefaultencoding('utf-8')
-            addkey = 'ssh-keygen –t rsa'+ '- f'+self.getPath()[0]+'\keyPath'
-            #addkey = 'ssh-keygen –t rsa'+ '- f'+getPath()+'/keyPath'
-            publicKey = os.popen(addkey)
-            print publicKey
+            addkey = 'ssh-keygen –t rsa'+ '- f'+self.getPath()[1]+'/keyPath'
+            os.popen(addkey)
 
         #获取.pub文件中的字符串
         def getPublicString(self):
@@ -38,3 +36,10 @@ class sshkey():
             file = open(loadPath,'r+')
             keyString = file.read()
             return keyString
+
+        #将keystring上传到gitlab
+        def uploadString(self):
+            serverConfig = configparser.ConfigParser()
+            serverConfig.read('config/server.ini')
+            host = serverConfig.get('gitlab_info', 'host')
+            cmd = 'ssh-copy -id '+' -i liqi@danlu.com@'+ host
